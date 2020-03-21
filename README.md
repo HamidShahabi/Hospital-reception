@@ -7,11 +7,11 @@
 <li>
 clone in your computer: 
 
-    ```
-mvn clean test 
-    git clone '<repo_url>'
-    cd <repo_dir>
-```
+`mvn clean test 
+git clone <repo_url>
+cd <repo_dir>`
+
+
 
 
 </li>
