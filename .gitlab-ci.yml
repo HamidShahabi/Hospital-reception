@@ -2,7 +2,7 @@ java:
   stage: test
   before_script:
     - echo $JAVA_HOME
-    - export JAVA_HOME=/home/modir/.sdkman/candidates/maven/current
+    - export JAVA_HOME=/home/gitlab-runner/.sdkman/candidates/maven/current
 
   script:
   - mvn clean test
