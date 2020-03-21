@@ -12,9 +12,9 @@ clone in your computer:
 </code>
 </li>
 
-<li>
+<li>`
 run tests from terminal: 
-   <code> mvn clean test </code>
+   <code> `mvn clean test` </code>
 </li>
 
 <li>
