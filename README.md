@@ -6,11 +6,14 @@
 <ul>
 <li>
 clone in your computer: 
-<code>
-    mvn clean test 
+
+    ```
+mvn clean test 
     git clone '<repo_url>'
     cd <repo_dir>
-</code>
+```
+
+
 </li>
 
 <li>
