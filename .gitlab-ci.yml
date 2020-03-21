@@ -1,5 +1,8 @@
 java:
   stage: test
+  before_script:
+    - echo $JAVA_HOME
+    - mvn --version
   script:
   - mvn clean test
   artifacts:
