@@ -1,10 +1,6 @@
-<cod
-e> hw3-
 
-
-
-[documentation](https://docs.google.com/document/d/1ZPubRSGbcgG5qcjh7BWdggY4jjAvauMACQnnyNc7xIw/edit?your_uspsharin
-<your_code
+# hw3-Fariborz-in-Quarantine
+[documentation](https://docs.google.com/document/d/1ZPubRSGbcgG5qcjh7BWdggY4jjAvauMACQnnyNc7xIw)
 
 
 <ul>
