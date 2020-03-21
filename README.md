@@ -8,6 +8,8 @@ run tests from terminal:
     mvn clean test
 
 push your change to the repository: 
+<code>
     git add . 
     git commit -m "commit message"
     git push
+</code>
