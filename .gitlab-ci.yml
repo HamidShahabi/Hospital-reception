@@ -2,7 +2,6 @@ java:
   stage: test
   before_script:
     - echo $JAVA_HOME
-    - mvn --version
     - export JAVA_HOME=/home/modir/.sdkman/candidates/maven/current
 
   script:
