@@ -13,9 +13,7 @@ clone in your computer:
 
 <code> 
 mvn clean test 
-
 git clone your_repo_url
-
 cd your_repo_dir
 </code>
 
