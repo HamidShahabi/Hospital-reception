@@ -8,7 +8,7 @@
 clone in your computer: 
 <code>
     mvn clean test 
-    git clone <repo_url>
+    git clone '<repo_url>'
     cd <repo_dir>
 </code>
 </li>
