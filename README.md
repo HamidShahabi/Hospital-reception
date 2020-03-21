@@ -7,7 +7,7 @@
 <li>
 clone in your computer: 
 
-`mvn clean test 
+``mvn clean test ```````code here``````
 git clone <repo_url>
 cd <repo_dir>`
 
