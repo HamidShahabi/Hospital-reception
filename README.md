@@ -1,5 +1,6 @@
 # hw3-fariborz-in-quarantine
-https://docs.google.com/document/d/1ZPubRSGbcgG5qcjh7BWdggY4jjAvauMACQnnyNc7xIw/edit?usp=sharing
+
+[documentation](https://docs.google.com/document/d/1ZPubRSGbcgG5qcjh7BWdggY4jjAvauMACQnnyNc7xIw/edit?usp=sharing)
 
 
 <ul>
@@ -12,9 +13,9 @@ clone in your computer:
 </code>
 </li>
 
-<li>`
-run tests from terminal: 
-   <code> `mvn clean test` </code>
+<li>
+run tests from terminal:  
+   <code> mvn clean test </code>
 </li>
 
 <li>
