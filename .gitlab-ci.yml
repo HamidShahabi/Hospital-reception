@@ -4,4 +4,6 @@ java:
   - mvn clean test
   artifacts:
     reports:
-      junit: build/test-results/test/**/TEST-*.xml
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
