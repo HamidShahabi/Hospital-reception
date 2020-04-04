@@ -1,24 +1,38 @@
 package ir.ac.kntu;
 
 public class HospitalizationLog {
-    enum Illness {
-        BURN, CRASH, IMPACT, OTHER
-    }
 
-    enum ReferType {
-        NORMAL, EMERGENCY
-    }
+
 
     private String firstName;
     private String lastName;
-    private String HospitalizationSection;
-
-
-    private Illness kindOfIllness;
-    private ReferType referType;
+    private Enums.Illness kindOfIllness;
+    private Enums.ReferType referType;
     private Date hospitalizationDate;
     private Time hospitalizationTime;
-
+    public HospitalizationLog(int referTypeIdentifier ,int kindOfIllnessIdentifier,
+                              String firstName,String lastName,Date date){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        hospitalizationDate = new Date(date.getYear(),date.getMonth(),date.getDay());
+        hospitalizationTime = new Time();
+        switch (referTypeIdentifier){
+            case 1:
+                referType = Enums.ReferType.NORMAL;break;
+            case 2:
+                referType = Enums.ReferType.EMERGENCY;
+        }
+        switch (kindOfIllnessIdentifier){
+            case 1:
+                kindOfIllness = Enums.Illness.BURN;break;
+            case 2:
+                kindOfIllness = Enums.Illness.CRASH;break;
+            case 3:
+                kindOfIllness = Enums.Illness.IMPACT;break;
+            case 4:
+                kindOfIllness = Enums.Illness.OTHER;
+        }
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -35,27 +49,19 @@ public class HospitalizationLog {
         this.lastName = lastName;
     }
 
-    public String getHospitalizationSection() {
-        return HospitalizationSection;
-    }
-
-    public void setHospitalizationSection(String hospitalizationSection) {
-        HospitalizationSection = hospitalizationSection;
-    }
-
-    public Illness getKindOfIllness() {
+    public Enums.Illness getKindOfIllness() {
         return kindOfIllness;
     }
 
-    public void setKindOfIllness(Illness kindOfIllness) {
+    public void setKindOfIllness(Enums.Illness kindOfIllness) {
         this.kindOfIllness = kindOfIllness;
     }
 
-    public ReferType getReferType() {
+    public Enums.ReferType getReferType() {
         return referType;
     }
 
-    public void setReferType(ReferType referType) {
+    public void setReferType(Enums.ReferType referType) {
         this.referType = referType;
     }
 

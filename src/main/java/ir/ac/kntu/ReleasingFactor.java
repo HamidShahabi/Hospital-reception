@@ -1,41 +1,38 @@
 package ir.ac.kntu;
 
 public class ReleasingFactor {
-    private PatientInformationFile information;
     private int hospitalizationDaysCount;
 
     public ReleasingFactor(double roomDailyCost) {
         this.roomDailyCost = roomDailyCost;
     }
-
+    private Date releaseDate;
     private double roomDailyCost;
     private double fullCost;
     private double finalCost;
 
-    public ReleasingFactor(PatientInformationFile information) {
-        this.information = information;
+    public ReleasingFactor(Patient patient) {
+        roomDailyCost = patient.getRoom().getRoomCost();
+        setHospitalizationDaysCount(patient.getInformation().getHospitalizationDate());
+        setFinalCost(patient);
+        setFullCost();
+        releaseDate = new Date();
+
     }
 
-    public void getPatientInformation(PatientInformationFile info) {
-        information = info;
+
+    public void setHospitalizationDaysCount(Date hospitalizationDate) {
+        Date today = new Date();
+        this.hospitalizationDaysCount = today.getDayOfYear()
+                - hospitalizationDate.getDayOfYear();
     }
 
-    public void setHospitalizationDaysCount(Date firstDate, Date lastDate) {
-
-        this.hospitalizationDaysCount = lastDate.getDayOfYear()
-                - firstDate.getDayOfYear();
-    }
-
-    public void setRoomDailyCost(int RoomDailyCost) {
+    public void setRoomDailyCost(double RoomDailyCost) {
         this.roomDailyCost = roomDailyCost;
     }
 
     public void setFullCost() {
         this.fullCost = roomDailyCost * hospitalizationDaysCount;
-    }
-
-    public PatientInformationFile getInformation() {
-        return information;
     }
 
     public int getHospitalizationDaysCount() {

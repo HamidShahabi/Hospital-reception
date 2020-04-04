@@ -16,12 +16,18 @@ public class Doctor {
     private ArrayList<Patient> patients;
     private ArrayList<Nurse> connectedNurses;
 
-    public Doctor(String name, String personnelId) {
+    public Doctor(String name, String personnelId,int maxShiftsCount) {
         this.name = name;
         this.personnelId = personnelId;
-        maxShiftsCount = 3;
+        this.maxShiftsCount = maxShiftsCount;
         patients = new ArrayList<>();
+        for(int i = 0;i < 5;i++){
+            patients.add(new Patient());
+        }
+
         connectedNurses = new ArrayList<>();
+        connectedNurses.add(new Nurse());
+        connectedNurses.add(new Nurse());
         shifts = new ArrayList<>();
     }
 
@@ -84,9 +90,9 @@ public class Doctor {
             int randInt = rand.nextInt(3);
             switch (randInt) {
                 case 0:
-                    shifts.add(Shifts.MORNING);
+                    shifts.add(Shifts.MORNING);break;
                 case 1:
-                    shifts.add(Shifts.AFTERNOON);
+                    shifts.add(Shifts.AFTERNOON);break;
                 case 2:
                     shifts.add(Shifts.NIGHT);
             }

@@ -2,22 +2,56 @@ package ir.ac.kntu;
 
 public class PatientInformationFile {
 
-
-    private enum Illness {
-        BURN, CRASH, IMPACT, OTHER
-    }
     private HospitalizationLog log;
     private String firstName;
     private String lastName;
     private String nationalId;
     private Date hospitalizationDate;
-    private  Enums.Sections hospitalizationSection;
-    private Illness kindOfIllness;
-    private Enums.Insurances Insurance;
-    private String gender;
+    private Enums.Sections hospitalizationSection;
+    private Enums.Illness kindOfIllness;
+    private Enums.Insurances insurance;
+    private Enums.Gender gender;
     private int age;
     private Doctor doctor;
-    private String fileId;
+    private int fileId;
+
+    public PatientInformationFile(String firstName,String lastName, String nationalId,
+                                  int insuranceIdentifier, int genderIdentifier, int age, int fileId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nationalId = nationalId;
+        this.age = age;
+        this.fileId = fileId;
+        switch (insuranceIdentifier){
+            case 1:
+                insurance = Enums.Insurances.ARMEDFORCES;break;
+            case 2:
+                insurance = Enums.Insurances.HEALTHSERVICE;break;
+            case 3:
+                insurance = Enums.Insurances.SOCIALSECURITY;break;
+            case 4:
+                insurance = Enums.Insurances.NONE;
+
+        }
+        switch (genderIdentifier){
+            case 1:
+                gender = Enums.Gender.MALE;break;
+            case 2:
+                gender = Enums.Gender.FEMALE;
+        }
+    }
+    public Enums.Sections getHospitalizationSection() {
+        return hospitalizationSection;
+    }
+
+    public void setHospitalizationSection() {
+        if(log.getReferType() == Enums.ReferType.NORMAL){
+            hospitalizationSection = Enums.Sections.PRINCIPAL;
+        }
+        else if(log.getReferType() == Enums.ReferType.EMERGENCY){
+            hospitalizationSection = Enums.Sections.EMERGENCY;
+        }
+    }
 
     public HospitalizationLog getLog() {
         return log;
@@ -59,27 +93,27 @@ public class PatientInformationFile {
         this.hospitalizationDate = hospitalizationDate;
     }
 
-    public Illness getKindOfIllness() {
+    public Enums.Illness getKindOfIllness() {
         return kindOfIllness;
     }
 
-    public void setKindOfIllness(Illness kindOfIllness) {
+    public void setKindOfIllness(Enums.Illness kindOfIllness) {
         this.kindOfIllness = kindOfIllness;
     }
 
     public Enums.Insurances getInsurance() {
-        return Insurance;
+        return insurance;
     }
 
     public void setInsurance(Enums.Insurances insurance) {
-        Insurance = insurance;
+        this.insurance = insurance;
     }
 
-    public String getGender() {
+    public Enums.Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Enums.Gender gender) {
         this.gender = gender;
     }
 
@@ -99,11 +133,11 @@ public class PatientInformationFile {
         this.doctor = doctor;
     }
 
-    public String getFileId() {
+    public int getFileId() {
         return fileId;
     }
 
-    public void setFileId(String fileId) {
+    public void setFileId(int fileId) {
         this.fileId = fileId;
     }
 }

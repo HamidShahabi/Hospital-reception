@@ -2,12 +2,10 @@ package ir.ac.kntu;
 
 public class Bed {
     private Room room;
-    private Patient patient;
     private boolean empty;
 
-    public Bed(Room room, Patient patient, boolean empty) {
+    public Bed(Room room, boolean empty) {
         this.room = room;
-        this.patient = patient;
         this.empty = empty;
     }
     public Bed(){
@@ -20,14 +18,6 @@ public class Bed {
 
     public void setRoom(Room room) {
         this.room = room;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
 
     public boolean getEmpty() {

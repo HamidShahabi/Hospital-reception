@@ -5,14 +5,11 @@ import java.util.ArrayList;
 public class Room {
 
 
-    private enum AvailabilityStatement {
-        AVAILABLE, UNAVAILABLE
-    }
+
 
     private int roomNum;
-
-    private AvailabilityStatement statement;
-    private Sections roomSection;
+    private Enums.AvailabilityStatement statement;
+    private Enums.Sections roomSection;
     private int bedsCount;
     private ArrayList<Bed> beds = new ArrayList<>(bedsCount);
     private ArrayList<Patient> patients;
@@ -51,19 +48,19 @@ public class Room {
         this.roomNum = roomNum;
     }
 
-    public ir.ac.kntu.Room.AvailabilityStatement getStatement() {
+    public Enums.AvailabilityStatement getStatement() {
         return statement;
     }
 
-    public void setStatement(ir.ac.kntu.Room.AvailabilityStatement statement) {
+    public void setStatement(Enums.AvailabilityStatement statement) {
         this.statement = statement;
     }
 
-    public ir.ac.kntu.Room.Sections getRoomSection() {
+    public Enums.Sections getRoomSection() {
         return roomSection;
     }
 
-    public void setRoomSection(ir.ac.kntu.Room.Sections roomSection) {
+    public void setRoomSection(Enums.Sections roomSection) {
         this.roomSection = roomSection;
     }
 
@@ -76,8 +73,11 @@ public class Room {
         this.bedsCount = bedsCount;
     }
 
-    public ArrayList<Bed> getBeds() {
-        return beds;
+    public Bed getBed(int index) {
+        if(index >= 0&& index < beds.size()){
+            return beds.get(index);
+        }
+        return null;
     }
 
     public void setBeds(ArrayList<Bed> beds) {

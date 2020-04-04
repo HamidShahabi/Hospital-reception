@@ -7,4 +7,16 @@ public class Enums {
     enum Insurances {
         SOCIALSECURITY, ARMEDFORCES, HEALTHSERVICE, NONE
     }
+    enum Illness {
+        BURN, CRASH, IMPACT, OTHER
+    }
+    enum Gender{
+        MALE,FEMALE
+    }
+    enum ReferType {
+        NORMAL, EMERGENCY
+    }
+    enum AvailabilityStatement {
+        AVAILABLE, UNAVAILABLE
+    }
 }

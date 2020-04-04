@@ -22,7 +22,7 @@ public class Nurse {
         maxShiftsCount = 6;
     }
 
-    public Nurse(){
+    public Nurse() {
         connectedDoctors = new ArrayList<>();
         shifts = new ArrayList<>();
         maxShiftsCount = 6;
