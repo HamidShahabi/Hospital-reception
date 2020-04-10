@@ -4,16 +4,14 @@ public class HospitalizationLog {
 
 
 
-    private String firstName;
-    private String lastName;
+    private String name;
     private Enums.Illness kindOfIllness;
     private Enums.ReferType referType;
     private Date hospitalizationDate;
     private Time hospitalizationTime;
     public HospitalizationLog(int referTypeIdentifier ,int kindOfIllnessIdentifier,
-                              String firstName,String lastName,Date date){
-        this.firstName = firstName;
-        this.lastName = lastName;
+                              String name,Date date){
+        this.name = name;
         hospitalizationDate = new Date(date.getYear(),date.getMonth(),date.getDay());
         hospitalizationTime = new Time();
         switch (referTypeIdentifier){
@@ -33,20 +31,12 @@ public class HospitalizationLog {
                 kindOfIllness = Enums.Illness.OTHER;
         }
     }
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Enums.Illness getKindOfIllness() {

@@ -72,6 +72,31 @@ public class Emergency {
     }
 
     public Patient getPatient(int index){
-        return patients.get(index);
+        if(index < patients.size()){
+            return patients.get(index);
+        }
+        return null;
+    }
+    public void setPatient(int index,Patient patient){
+        patients.set(index,patient);
+    }
+    public void addRoom(Room room){
+        rooms.add(room);
+    }
+    public int getRoomsCount(){
+        return rooms.size();
+    }
+    public Room getRoom(int index){
+        return rooms.get(index);
+    }
+    public int getEmptyBedsCount(){
+        int emptyBedsCount = 0;
+        for(int i = 0;i < getRoomsCount();i++){
+            emptyBedsCount += rooms.get(i).getEmptyBedsCount();
+        }
+        return emptyBedsCount;
+    }
+    public void removeRoom(int index){
+        rooms.remove(index);
     }
 }

@@ -43,6 +43,7 @@ public class Hospital {
             hospital = new Hospital();
         }
         return hospital;
+
     }
 
     public Doctor getDoctor(int index) {
@@ -60,10 +61,17 @@ public class Hospital {
         }
 
     }
+    public void addNurse(Nurse nurse){
+        nurses.add(nurse);
+    }
+    public void addDoctor(Doctor doctor){
+        doctors.add(doctor);
+    }
     public int getDoctorsCount() {
         return doctors.size();
     }
     public int getNursesCount(){
         return nurses.size();
     }
+
 }

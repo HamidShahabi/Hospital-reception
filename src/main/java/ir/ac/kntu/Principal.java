@@ -12,13 +12,6 @@ public class Principal {
         patients = new ArrayList<>();
     }
 
-    public ArrayList<Room> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(ArrayList<Room> rooms) {
-        this.rooms = rooms;
-    }
 
     public Room findSolitudeRoom() {
         int min = Integer.MAX_VALUE;
@@ -68,14 +61,48 @@ public class Principal {
         return null;
 
     }
-    public void addPatient(Patient patient){
+
+    public void addPatient(Patient patient) {
         patients.add(patient);
     }
-    public Patient getPatient(int index){
-        return patients.get(index);
+
+    public Patient getPatient(int index) {
+        if(index < patients.size()){
+            return patients.get(index);
+        }
+        return null;
+
     }
-    public int getPatientsCount(){
+
+    public int getPatientsCount() {
         return patients.size();
     }
 
+    public void setPatient(int index, Patient patient) {
+        patients.set(index, patient);
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
+    public int getRoomsCount() {
+        return rooms.size();
+    }
+
+    public Room getRoom(int index) {
+        return rooms.get(index);
+    }
+
+    public int getEmptyBedsCount() {
+        int emptyBedsCount = 0;
+        for (int i = 0; i < getRoomsCount(); i++) {
+            emptyBedsCount += rooms.get(i).getEmptyBedsCount();
+        }
+        return emptyBedsCount;
+    }
+
+    public void removeRoom(int index) {
+        rooms.remove(index);
+    }
 }

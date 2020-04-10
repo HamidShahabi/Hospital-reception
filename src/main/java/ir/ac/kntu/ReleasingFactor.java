@@ -6,20 +6,33 @@ public class ReleasingFactor {
     public ReleasingFactor(double roomDailyCost) {
         this.roomDailyCost = roomDailyCost;
     }
+
+
     private Date releaseDate;
     private double roomDailyCost;
     private double fullCost;
     private double finalCost;
+
+    public ReleasingFactor() {
+    }
 
     public ReleasingFactor(Patient patient) {
         roomDailyCost = patient.getRoom().getRoomCost();
         setHospitalizationDaysCount(patient.getInformation().getHospitalizationDate());
         setFinalCost(patient);
         setFullCost();
+        setFinalCost(patient);
         releaseDate = new Date();
 
     }
 
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
 
     public void setHospitalizationDaysCount(Date hospitalizationDate) {
         Date today = new Date();

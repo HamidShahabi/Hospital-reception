@@ -3,8 +3,7 @@ package ir.ac.kntu;
 public class PatientInformationFile {
 
     private HospitalizationLog log;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String nationalId;
     private Date hospitalizationDate;
     private Enums.Sections hospitalizationSection;
@@ -15,40 +14,46 @@ public class PatientInformationFile {
     private Doctor doctor;
     private int fileId;
 
-    public PatientInformationFile(String firstName,String lastName, String nationalId,
+    public PatientInformationFile() {
+    }
+
+    public PatientInformationFile(String name, String nationalId,
                                   int insuranceIdentifier, int genderIdentifier, int age, int fileId) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.nationalId = nationalId;
         this.age = age;
         this.fileId = fileId;
-        switch (insuranceIdentifier){
+        switch (insuranceIdentifier) {
             case 1:
-                insurance = Enums.Insurances.ARMEDFORCES;break;
+                insurance = Enums.Insurances.ARMEDFORCES;
+                break;
             case 2:
-                insurance = Enums.Insurances.HEALTHSERVICE;break;
+                insurance = Enums.Insurances.HEALTHSERVICE;
+                break;
             case 3:
-                insurance = Enums.Insurances.SOCIALSECURITY;break;
+                insurance = Enums.Insurances.SOCIALSECURITY;
+                break;
             case 4:
                 insurance = Enums.Insurances.NONE;
 
         }
-        switch (genderIdentifier){
+        switch (genderIdentifier) {
             case 1:
-                gender = Enums.Gender.MALE;break;
+                gender = Enums.Gender.MALE;
+                break;
             case 2:
                 gender = Enums.Gender.FEMALE;
         }
     }
+
     public Enums.Sections getHospitalizationSection() {
         return hospitalizationSection;
     }
 
     public void setHospitalizationSection() {
-        if(log.getReferType() == Enums.ReferType.NORMAL){
+        if (log.getReferType() == Enums.ReferType.NORMAL) {
             hospitalizationSection = Enums.Sections.PRINCIPAL;
-        }
-        else if(log.getReferType() == Enums.ReferType.EMERGENCY){
+        } else if (log.getReferType() == Enums.ReferType.EMERGENCY) {
             hospitalizationSection = Enums.Sections.EMERGENCY;
         }
     }
@@ -61,20 +66,12 @@ public class PatientInformationFile {
         this.log = log;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getNationalId() {
@@ -140,4 +137,5 @@ public class PatientInformationFile {
     public void setFileId(int fileId) {
         this.fileId = fileId;
     }
+
 }

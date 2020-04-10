@@ -3,21 +3,27 @@ package ir.ac.kntu;
 public class Patient {
     private PatientInformationFile information;
     private Room room;
-    private String hospitalizationID;
     private boolean isHealed = false;
+    private ReleasingFactor releasingFactor;
 
     public Patient() {
     }
 
+    public boolean isHealed() {
+        return isHealed;
+    }
+
     public Patient(int referTypeIdentifier, int kindOfIllnessIdentifier, int insuranceIdentifier,
-                   String firsName, String lastName, String nationalId,
+                   String name, String nationalId,
                    int genderIdentifier, int age, int fileId, Date date) {
         room = new Room();
-        information = new PatientInformationFile(firsName, lastName, nationalId,
+        information = new PatientInformationFile(name, nationalId,
                 insuranceIdentifier, genderIdentifier, age, fileId);
-        information.setLog(new HospitalizationLog(referTypeIdentifier, kindOfIllnessIdentifier, firsName, lastName, date));
+        information.setLog(new HospitalizationLog(referTypeIdentifier, kindOfIllnessIdentifier, name, date));
         information.setHospitalizationSection();
+        information.setHospitalizationDate(date);
         information.setKindOfIllness(information.getLog().getKindOfIllness());
+        releasingFactor = new ReleasingFactor();
     }
 
     public void setPatientInformation(PatientInformationFile info) {
@@ -55,6 +61,7 @@ public class Patient {
         if (foundADoctor) {
             information.setDoctor(Hospital.getInstance().getDoctor(selectedIndex));
             Hospital.getInstance().getDoctor(selectedIndex).addPatient(this);
+            return true;
         }
         return false;
 
@@ -91,7 +98,9 @@ public class Patient {
             if (room.getBed(i).getEmpty() == false) {
                 room.getBed(i).setEmpty(true);
                 ReleasingFactor releasingFactor = new ReleasingFactor(this);
+                information.getDoctor().removePatient(this);
                 this.isHealed = true;
+                this.releasingFactor = releasingFactor;
                 return releasingFactor;
             }
         }

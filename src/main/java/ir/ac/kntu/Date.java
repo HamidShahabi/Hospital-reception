@@ -72,16 +72,23 @@ public class Date {
         this.day = day;
     }
 
-    public int getDayOfYear(){
+    public int getDayOfYear() {
         int dayCounter = 0;
-        if(month <= 6){
-            dayCounter = ( month - 1 ) * 31 + day;
-        }
-        else{
+        if (month <= 6) {
+            dayCounter = (month - 1) * 31 + day;
+        } else {
             month -= 6;
             dayCounter = 186 + (month - 1) * 30 + day;
         }
         return dayCounter;
     }
 
+    @Override
+    public String toString() {
+        return
+                  day +
+                " - " + month +
+                " - " + year
+                ;
+    }
 }
