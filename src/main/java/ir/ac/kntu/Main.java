@@ -1,11 +1,5 @@
 package ir.ac.kntu;
-
-import com.sun.security.jgss.GSSUtil;
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     private static Emergency emergency = new Emergency();
